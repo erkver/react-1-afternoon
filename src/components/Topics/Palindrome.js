@@ -17,14 +17,9 @@ class Palindrome extends Component {
 
     isPalindrome(shape) {
         let status = false;
-        for(let i = 0; i < shape.length; i++){
-            for(let j = shape.length - 1; j > 0; j--) {
-                if(shape.charAt(i) === shape.charAt(j)) {
-                    status = true;
-                }
-            }
-        }
-        this.setState({palindrome: status, userInput: []})
+        let reverseShape = shape.split('').reverse().join('');
+        shape === reverseShape ? status = true : status;
+        this.setState({palindrome: status, userInput:""})
     }
 
     render() {
